@@ -1,0 +1,124 @@
+/*————————————————————————————————————————|Podstawowe|————————————————————*/
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --main-color: rgb(253,217,141);
+    --second-color: #333;
+    --bg-color: rgb(253,217,141);
+    --font-color: black;
+    --font-2nd-color: #f2a86f;
+}
+/*————————————————————————————————————————|Fonts|————————————————————*/
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../files/fonts/Ubuntu-Regular.ttf');
+}
+@font-face {
+    font-family: 'Apple';
+    src: url('../files/fonts/SFUIText-Regular.otf');
+}
+@font-face {
+    font-family: 'Apple-bold';
+    src: url('../files/fonts/SFUIText-Bold.otf');
+}
+@font-face {
+    font-family: 'Apple-heavy';
+    src: url('../files/fonts/SFUIText-Heavy.otf');
+}
+@font-face {
+    font-family: 'Apple-semi-bold';
+    src: url('../files/fonts/SFUIText-Semibold.otf');
+}
+@font-face {
+    font-family: 'Apple-light';
+    src: url('../files/fonts/SFUIText-Light.otf');
+}
+/*————————————————————————————————————————|Header|————————————————————*/
+header {
+    text-align: center;
+    padding: 0.5em 0;
+    background-color: var(--main-color);
+}
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Apple-semi-bold';
+    color: var(--font-2nd-color);
+    padding: 0.5em;
+    display: inline-block;
+}
+nav a:hover {
+    background-color: var(--main-color);
+    color: black;
+}
+body {
+    font-family: 'Apple';
+}
+footer {
+    font-size: 0.8em;
+    padding: 0.5em 0;
+    text-align: center;
+    background-color: var(--main-color);
+}
+/*————————————————————————————————————————|Page|————————————————————*/
+#page-content {
+    max-width: 800px;
+    padding: 0 0.5em;
+}
+#page-content h2 {
+    margin: 0.5em 0;
+    background-color: var(--main-color);
+    padding: 0.5em;
+    border-radius: 0.2em;
+}
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+    font-family: 'Apple-semi-bold';
+}
+h2, h3, h4, h5 {
+    margin: 0.5em 0;
+}
+/*————————————————————————————————————————||————————————————————*/
+.verb-container {
+    max-width: 250px;
+    padding: 0.5em;
+}
+.verb {
+    display: flex;
+    flex-direction: row;
+}
+.v {
+    font-family: 'apple-semi-bold';
+}
+.pause {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+.t {
+    color: gray;
+}
+.conjugation-container {
+    padding-top: 0.3em;
+    padding-left: 0.5em;
+}
+.conjugation {
+    display: flex;
+    flex-direction: row;
+}
+.o {
+    color: gray;
+    text-align: right;
+    width: 25%;
+}
+.c {
+    margin-left: 0.5em;
+    text-align: left;
+    width: 75%;
+}
+.quote {
+    font-size: 0.8em;
+    font-style: italic;
+}
+/*————————————————————————————————————————||————————————————————*/
