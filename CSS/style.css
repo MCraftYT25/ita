@@ -4,8 +4,10 @@
     padding: 0;
 }
 :root {
-    --main-color: rgb(253,217,141);
+    /*--main-color: rgb(253,217,141);*/
+    --main-color: #333;
     --second-color: #333;
+    --second-color: rgb(253,217,141);
     --bg-color: rgb(253,217,141);
     --font-color: black;
     --font-2nd-color: #f2a86f;
@@ -40,18 +42,19 @@ header {
     text-align: center;
     padding: 0.5em 0;
     background-color: var(--main-color);
+    color: var(--second-color);
 }
 nav a {
     text-decoration: none;
     color: black;
     font-family: 'Apple-semi-bold';
-    color: var(--font-2nd-color);
+    color: var(--main-color);
     padding: 0.5em;
     display: inline-block;
 }
 nav a:hover {
     background-color: var(--main-color);
-    color: black;
+    color: var(--second-color);
 }
 body {
     font-family: 'Apple';
@@ -61,6 +64,7 @@ footer {
     padding: 0.5em 0;
     text-align: center;
     background-color: var(--main-color);
+    color: var(--second-color);
 }
 /*————————————————————————————————————————|Page|————————————————————*/
 #page-content {
@@ -76,9 +80,22 @@ footer {
 h1, h2, h3, h4, h5 {
     font-weight: normal;
     font-family: 'Apple-semi-bold';
+    color: var(--second-color);
 }
 h2, h3, h4, h5 {
     margin: 0.5em 0;
+}
+
+#searchelement {
+    width: 95%;
+    font-size: 1.2em;
+    padding: 0.5em;
+    border: none;
+    border-bottom: solid 1px black;
+}
+#searchelement:focus {
+    outline: none;
+    font-size: 2em;
 }
 /*————————————————————————————————————————||————————————————————*/
 .verb-container {
@@ -120,5 +137,6 @@ h2, h3, h4, h5 {
 .quote {
     font-size: 0.8em;
     font-style: italic;
+    margin-left: 1em;
 }
 /*————————————————————————————————————————||————————————————————*/
