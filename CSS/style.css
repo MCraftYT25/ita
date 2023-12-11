@@ -6,7 +6,6 @@
 :root {
     /*--main-color: rgb(253,217,141);*/
     --main-color: #333;
-    --second-color: #333;
     --second-color: rgb(253,217,141);
     --bg-color: rgb(253,217,141);
     --font-color: black;
@@ -50,7 +49,11 @@ nav a {
     font-family: 'Apple-semi-bold';
     color: var(--main-color);
     padding: 0.5em;
-    display: inline-block;
+    display: table-cell;
+    vertical-align: middle;
+}
+nav img {
+    vertical-align: middle;
 }
 nav a:hover {
     background-color: var(--main-color);
@@ -147,5 +150,33 @@ h2, h3, h4, h5 {
 }
 .verb-container .g, .r {
     font-family: 'apple-semi-bold';
+}
+p::selection, span::selection, a::selection, input::selection {
+    background-color: var(--second-color);
+}
+h1::selection, h2::selection {
+    background-color: var(--second-color);
+    color: black;
+}
+/*————————————————————————————————————————||————————————————————*/
+.update {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+}
+.up-desc {
+    margin-left: 1em;
+    width: 70%;
+}
+.version {
+    font-size: 2em;
+    font-family: 'apple-semi-bold';
+}
+.date {
+    color: gray;
+    font-size: 0.7em;
+}
+.vr-dt {
+    width: 20%;
 }
 /*————————————————————————————————————————||————————————————————*/

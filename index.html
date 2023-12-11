@@ -10,14 +10,20 @@
 <body>
     <div id="page-head">
         <header>
-            <h1>Italiano</h1>
+                <h1>Italiano</h1>
         </header>
     </div>
     <div id="page-content">
         <nav>
             <a href="">Home</a>
             <a href="">Update</a>
+            <a href=""><img src="files/img/settings.png"></a>
+            <a href=""><img src="files/img/menu.png"></a>
         </nav>
+        <section>
+            <h2>Codzienna szybka nauka</h2>
+            <div id="learning"></div>
+        </section>
         <section>
             <h2>Czasowniki - odmiana</h2>
             <p class="quote">Vado contro le previsioni</p>
@@ -269,15 +275,59 @@
                 <input type="file" id="myFile">
             </div>
         </section>
-        <h2>Start: 10.12.2023</h2>
+        <section>
+            <h2>Last Update: <span id="days"></span> days ago.</h2>
+            <div id="update-list">
+                <div class="update">
+                    <div class="vr-dt">
+                        <p class="version">V0.4</p>
+                        <p class="date">2023-12-11</p>
+                    </div>
+                    <div class="up-desc">
+                        <p>+ GPT-4 scripts: search engine, day counter</p>
+                        <p>+ folder: scripts</p>
+                        <p>+ file: searchengine.js</p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="vr-dt">
+                        <p class="version">V0.3</p>
+                        <p class="date">2023-12-10</p>
+                    </div>
+                    <div class="up-desc">
+                        <p>+ fixed bugs</p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="vr-dt">
+                        <p class="version">V0.2</p>
+                        <p class="date">2023-12-10</p>
+                    </div>
+                    <div class="up-desc">
+                        <p>+ fixed bugs</p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="vr-dt">
+                        <p class="version">V0.1</p>
+                        <p class="date">2023-12-10</p>
+                    </div>
+                    <div class="up-desc">
+                        <p>+ folders: CSS, files</p>
+                        <p>+ files: index.html, style.css</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <div id="page-footer">
         <footer>
-            <p>2023 V0.3</p>
+            <p>2023 V0.4</p>
         </footer>
     </div>
 </body>
 <script>
+    //wyszukiwarka
     document.querySelector('#searchelement').addEventListener('input', function(e) {
     let searchValue = e.target.value.toLowerCase();
     let verbContainers = document.querySelectorAll('.verb-container');
@@ -293,39 +343,88 @@
 });
 </script>
 <script>
-    /*const elements = [...document.getElementsByClassName("verb-container")];
-    const container = document.getElementById("verbs-container");
+// Pobierz datę z diva
+let dateDiv = document.getElementsByClassName("date")[0];
+let dateText = dateDiv.textContent;
 
-    const searchWord = () => {
-        const search = document.getElementById('searchelement').value;
-        let result = elements;
-        const search2 = search[0].toUpperCase() + search.slice(1);
-        result = result.filter(elements => elements.textContent.includes(search) || elements.textContent.includes(search2));
-        container.textContent = '';
-        result.forEach(name => container.appendChild(name));
+// Przekształć tekst na obiekt Date
+let date = new Date(dateText);
+
+// Pobierz dzisiejszą datę
+let today = new Date();
+
+// Oblicz różnicę w milisekundach
+let diff = today - date;
+
+// Przekształć różnicę na dni
+let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+// Wpisz liczbę dni do elementu o id "days"
+let daysElement = document.getElementById("days");
+daysElement.textContent = days;
+</script>
+<script>
+    // Pobierz wszystkie elementy o klasie "verb-container"
+let elements = document.getElementsByClassName("verb-container");
+
+// Sprawdź, czy mamy co najmniej 3 elementy
+if(elements.length < 5) {
+    console.log("Za mało elementów o klasie 'verb-container' do wylosowania");
+} else {
+    // Stwórz tablicę indeksów
+    let indices = Array.from({length: elements.length}, (_, i) => i);
+
+    // Przetasuj tablicę indeksów
+    for(let i = indices.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
     }
 
-    document.addEventListener('input', searchWord);*/
+    // Wybierz pierwsze 3 indeksy
+    let selectedIndices = indices.slice(0, 5);
 
-    //nieregulane
-let linie;
-    document.getElementById('myFile').addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    var reader = new FileReader();
+    // Pobierz istniejący div o ID "learning"
+    let learningDiv = document.getElementById("learning");
 
-    reader.onload = function(e) {
-        var lines = e.target.result.split('\n');
-        for(var i = 0; i < lines.length; i++) {
-            console.log(lines[i]);
-            var podzielone = lines[i].split("|")
-            var tekst = '<div class="verb-container"><div class="verb"><p class="v">' + podzielone[0] + '</p><p class="pause">—</p><p class="t">' + podzielone[1] + '</p></div><div class="conjugation-container"><div class="conjugation"><p class="o">io</p><p class="c">' + podzielone[2] + '</p></div><div class="conjugation"><p class="o">tu</p><p class="c">' + podzielone[3] + '</p></div><div class="conjugation"><p class="o">lui/lei</p><p class="c">' + podzielone[4] + '</p></div><div class="conjugation"><p class="o">noi</p><p class="c">' + podzielone[5] + '</p></div><div class="conjugation"><p class="o">voi</p><p class="c">' + podzielone[6] + '</p></div><div class="conjugation"><p class="o">loro</p><p class="c">' + podzielone[7] + '</p></div></div></div>';
-            var textNode = document.createTextNode(tekst);
-            document.getElementById("verbs-container").appendChild(textNode);
-        }
+    // Dodaj wybrane elementy do diva "learning"
+    for(let i = 0; i < selectedIndices.length; i++) {
+        learningDiv.appendChild(elements[selectedIndices[i]].cloneNode(true));
+    }
+}
+</script>
+<script>
+    /*
+// Pobierz wszystkie elementy o klasie "verb-container"
+let elements = document.getElementsByClassName("verb-container");
+
+// Sprawdź, czy mamy co najmniej 3 elementy
+if(elements.length < 3) {
+    console.log("Za mało elementów o klasie 'verb-container' do wylosowania");
+} else {
+    // Stwórz tablicę indeksów
+    let indices = Array.from({length: elements.length}, (_, i) => i);
+
+    // Przetasuj tablicę indeksów
+    for(let i = indices.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
     }
 
-    reader.readAsText(file);   
-});
+    // Wybierz pierwsze 3 indeksy
+    let selectedIndices = indices.slice(0, 3);
+
+    // Stwórz nowy div do wyświetlenia wybranych elementów
+    let displayDiv = document.createElement("div");
+    displayDiv.id = "displayDiv";
+
+    // Dodaj wybrane elementy do nowego diva
+    for(let i = 0; i < selectedIndices.length; i++) {
+        displayDiv.appendChild(elements[selectedIndices[i]].cloneNode(true));
+    }
+
+    // Dodaj nowy div do ciała dokumentu
+    document.body.appendChild(displayDiv);
+} */
 </script>
 <script>
     //regularne
@@ -340,6 +439,25 @@ let linie;
             console.log(lines[i]);
             var podzielone = lines[i].split("|")
             var tekst = '<div class="verb-container"> <div class="verb"> <p class="v">' + podzielone[0] + '</p> <p class="pause">—</p> <p class="t">' + podzielone[1] + '</p> </div> </div>';
+            var textNode = document.createTextNode(tekst);
+            document.getElementById("verbs-container").appendChild(textNode);
+        }
+    }
+
+    reader.readAsText(file);   
+});*/
+ //nieregulane
+ /*let linie;
+    document.getElementById('myFile').addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+        var lines = e.target.result.split('\n');
+        for(var i = 0; i < lines.length; i++) {
+            console.log(lines[i]);
+            var podzielone = lines[i].split("|")
+            var tekst = '<div class="verb-container"><div class="verb"><p class="v">' + podzielone[0] + '</p><p class="pause">—</p><p class="t">' + podzielone[1] + '</p></div><div class="conjugation-container"><div class="conjugation"><p class="o">io</p><p class="c">' + podzielone[2] + '</p></div><div class="conjugation"><p class="o">tu</p><p class="c">' + podzielone[3] + '</p></div><div class="conjugation"><p class="o">lui/lei</p><p class="c">' + podzielone[4] + '</p></div><div class="conjugation"><p class="o">noi</p><p class="c">' + podzielone[5] + '</p></div><div class="conjugation"><p class="o">voi</p><p class="c">' + podzielone[6] + '</p></div><div class="conjugation"><p class="o">loro</p><p class="c">' + podzielone[7] + '</p></div></div></div>';
             var textNode = document.createTextNode(tekst);
             document.getElementById("verbs-container").appendChild(textNode);
         }
