@@ -14,7 +14,7 @@
         </header>
     </div>
     <div id="page-content">
-        <nav>
+        <nav id="menu">
             <a href="">Home</a>
             <a href="">Update</a>
             <a href=""><img src="files/img/settings.png"></a>
@@ -280,6 +280,16 @@
             <div id="update-list">
                 <div class="update">
                     <div class="vr-dt">
+                        <p class="version">V0.5</p>
+                        <p class="date">2023-12-11</p>
+                    </div>
+                    <div class="up-desc">
+                        <p>+ code optimalization</p>
+                        <p>+ added files: all.js, learning.js, searchengine.js, daycounter.js</p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="vr-dt">
                         <p class="version">V0.4</p>
                         <p class="date">2023-12-11</p>
                     </div>
@@ -319,151 +329,88 @@
                 </div>
             </div>
         </section>
+        <section>
+            <h2>Websites</h2>
+            <div class="image-box">
+                <div class="image">
+                    <img src="files/img/icon.png">
+                </div>
+                <div class="image-desc">
+                    <p class="img-title">VSKY.IT</p>
+                    <p>Part of VSKY.COM</p>
+                </div>
+            </div>
+            <div class="image-box">
+                <div class="image">
+                    <img src="files/img/ibb-max.jpg" onclick="move('ibb');">
+                </div>
+                <div class="image-desc">
+                    <p class="img-title">iBeBetter</p>
+                    <p>change yourself</p>
+                </div>
+            </div>
+            <div class="image-box">
+                <div class="image">
+                    <img src="files/img/icon3.jpg" onclick="move('ling');">
+                </div>
+                <div class="image-desc">
+                    <p class="img-title">VSKY.COM</p>
+                    <p>VSKY.COM is a free website created for easy and friendly language learning.</p>
+                </div>
+            </div>
+            <div class="image-box">
+                <div class="image">
+                    <img src="files/img/icon3.jpg" onclick="move('archive');">
+                </div>
+                <div class="image-desc">
+                    <p class="img-title">VSKY.COM/archive</p>
+                    <p>Old version of VSKY.COM.</p>
+                </div>
+            </div>
+            <div class="image-box">
+                <div class="image">
+                    <img src="files/img/icon4.jpg" onclick="move('48');">
+                </div>
+                <div class="image-desc">
+                    <p class="img-title">changeyourself.gg</p>
+                    <p>Robert Greene - "48 Laws of Power"</p>
+                </div>
+            </div>
+        </section>
     </div>
+    <div id="mobile-widgets"><a id="gomenu" href="#menu">Menu</a></div>
     <div id="page-footer">
         <footer>
-            <p>2023 V0.4</p>
+            <p>2023 V0.5</p>
         </footer>
     </div>
 </body>
 <script>
-    //wyszukiwarka
-    document.querySelector('#searchelement').addEventListener('input', function(e) {
-    let searchValue = e.target.value.toLowerCase();
-    let verbContainers = document.querySelectorAll('.verb-container');
-
-    verbContainers.forEach(function(container) {
-        let textValue = container.textContent || container.innerText;
-        if (textValue.toLowerCase().indexOf(searchValue) > -1) {
-            container.style.display = "";
-        } else {
-            container.style.display = "none";
-        }
-    });
-});
-</script>
-<script>
-// Pobierz datę z diva
-let dateDiv = document.getElementsByClassName("date")[0];
-let dateText = dateDiv.textContent;
-
-// Przekształć tekst na obiekt Date
-let date = new Date(dateText);
-
-// Pobierz dzisiejszą datę
-let today = new Date();
-
-// Oblicz różnicę w milisekundach
-let diff = today - date;
-
-// Przekształć różnicę na dni
-let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-// Wpisz liczbę dni do elementu o id "days"
-let daysElement = document.getElementById("days");
-daysElement.textContent = days;
-</script>
-<script>
-    // Pobierz wszystkie elementy o klasie "verb-container"
-let elements = document.getElementsByClassName("verb-container");
-
-// Sprawdź, czy mamy co najmniej 3 elementy
-if(elements.length < 5) {
-    console.log("Za mało elementów o klasie 'verb-container' do wylosowania");
-} else {
-    // Stwórz tablicę indeksów
-    let indices = Array.from({length: elements.length}, (_, i) => i);
-
-    // Przetasuj tablicę indeksów
-    for(let i = indices.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [indices[i], indices[j]] = [indices[j], indices[i]];
-    }
-
-    // Wybierz pierwsze 3 indeksy
-    let selectedIndices = indices.slice(0, 5);
-
-    // Pobierz istniejący div o ID "learning"
-    let learningDiv = document.getElementById("learning");
-
-    // Dodaj wybrane elementy do diva "learning"
-    for(let i = 0; i < selectedIndices.length; i++) {
-        learningDiv.appendChild(elements[selectedIndices[i]].cloneNode(true));
-    }
-}
-</script>
-<script>
-    /*
-// Pobierz wszystkie elementy o klasie "verb-container"
-let elements = document.getElementsByClassName("verb-container");
-
-// Sprawdź, czy mamy co najmniej 3 elementy
-if(elements.length < 3) {
-    console.log("Za mało elementów o klasie 'verb-container' do wylosowania");
-} else {
-    // Stwórz tablicę indeksów
-    let indices = Array.from({length: elements.length}, (_, i) => i);
-
-    // Przetasuj tablicę indeksów
-    for(let i = indices.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [indices[i], indices[j]] = [indices[j], indices[i]];
-    }
-
-    // Wybierz pierwsze 3 indeksy
-    let selectedIndices = indices.slice(0, 3);
-
-    // Stwórz nowy div do wyświetlenia wybranych elementów
-    let displayDiv = document.createElement("div");
-    displayDiv.id = "displayDiv";
-
-    // Dodaj wybrane elementy do nowego diva
-    for(let i = 0; i < selectedIndices.length; i++) {
-        displayDiv.appendChild(elements[selectedIndices[i]].cloneNode(true));
-    }
-
-    // Dodaj nowy div do ciała dokumentu
-    document.body.appendChild(displayDiv);
-} */
-</script>
-<script>
-    //regularne
-    /*let linie;
-    document.getElementById('myFile').addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    var reader = new FileReader();
-
-    reader.onload = function(e) {
-        var lines = e.target.result.split('\n');
-        for(var i = 0; i < lines.length; i++) {
-            console.log(lines[i]);
-            var podzielone = lines[i].split("|")
-            var tekst = '<div class="verb-container"> <div class="verb"> <p class="v">' + podzielone[0] + '</p> <p class="pause">—</p> <p class="t">' + podzielone[1] + '</p> </div> </div>';
-            var textNode = document.createTextNode(tekst);
-            document.getElementById("verbs-container").appendChild(textNode);
+    function move(x)
+    {
+        switch(x)
+        {
+            case 'ibb':
+                window.location.href = "https://mcraftyt25.github.io/ibb/";
+                break;
+            case 'ling':
+                window.location.href = "https://mcraftyt25.github.io/ling/";
+                break;
+            case 'archive':
+                window.location.href = "https://mcraftyt25.github.io/angwebsite.github.io/";
+                break;
+            case '48':
+                window.location.href = "https://mcraftyt25.github.io/48/";
+                break;
+            case '':
+                window.location.href = "https://mcraftyt25.github.io/angwebsite.github.io/";
+                break;
+                
         }
     }
-
-    reader.readAsText(file);   
-});*/
- //nieregulane
- /*let linie;
-    document.getElementById('myFile').addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    var reader = new FileReader();
-
-    reader.onload = function(e) {
-        var lines = e.target.result.split('\n');
-        for(var i = 0; i < lines.length; i++) {
-            console.log(lines[i]);
-            var podzielone = lines[i].split("|")
-            var tekst = '<div class="verb-container"><div class="verb"><p class="v">' + podzielone[0] + '</p><p class="pause">—</p><p class="t">' + podzielone[1] + '</p></div><div class="conjugation-container"><div class="conjugation"><p class="o">io</p><p class="c">' + podzielone[2] + '</p></div><div class="conjugation"><p class="o">tu</p><p class="c">' + podzielone[3] + '</p></div><div class="conjugation"><p class="o">lui/lei</p><p class="c">' + podzielone[4] + '</p></div><div class="conjugation"><p class="o">noi</p><p class="c">' + podzielone[5] + '</p></div><div class="conjugation"><p class="o">voi</p><p class="c">' + podzielone[6] + '</p></div><div class="conjugation"><p class="o">loro</p><p class="c">' + podzielone[7] + '</p></div></div></div>';
-            var textNode = document.createTextNode(tekst);
-            document.getElementById("verbs-container").appendChild(textNode);
-        }
-    }
-
-    reader.readAsText(file);   
-});*/
 </script>
+<script src="scripts/searchengine.js"></script>
+<script src="scripts/daycounter.js"></script>
+<script src="scripts/learning.js"></script>
+<script src="scripts/all.js"></script>
 </html>

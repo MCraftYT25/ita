@@ -162,11 +162,15 @@ h1::selection, h2::selection {
 .update {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 .up-desc {
-    margin-left: 1em;
-    width: 70%;
+    padding: 0.5em;
+    width: 80%;
+    background-color: lightgray;
+    background-color: var(--second-color);
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
 }
 .version {
     font-size: 2em;
@@ -178,5 +182,62 @@ h1::selection, h2::selection {
 }
 .vr-dt {
     width: 20%;
+    background-color: var(--main-color);
+    color: var(--second-color);
+    padding: 0.5em;
+    border-top-left-radius: 0.2em;
+    border-bottom-left-radius: 0.2em;
+}
+/*————————————————————————————————————————||————————————————————*/
+.image-box {
+    display: flex;
+    flex-direction: row;
+    height: 5em;
+    margin-bottom: 0.5em;
+}
+.image img {
+    height: 5em;
+    width: auto;
+    border-top-left-radius: 0.2em;
+    border-bottom-left-radius: 0.2em;
+}
+.image-desc {
+    padding: 0.5em;
+    background-color: var(--second-color);
+    width: 100%;
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+}
+.img-title {
+    font-size: 1.5em;
+    font-family: 'Apple-semi-bold';
+}
+/*————————————————————————————————————————||————————————————————*/
+@media screen and (min-width: 200px) {
+    #mobile-widgets {
+        visibility: visible;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding-bottom: 0.5em;
+        padding-top: 0.5em;
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+        background-color: var(--main-color);
+        color: var(--second-color);
+    }
+    #mobile-widgets a {
+        padding: 0.5em;
+        background-color: var(--main-color);
+        text-decoration: none;
+        color: var(--second-color);
+        font-family: 'Apple-bold';
+    }
+
+}
+@media screen and (min-width: 1050px) {
+    #mobile-widgets {
+        visibility: hidden;
+    }
 }
 /*————————————————————————————————————————||————————————————————*/
