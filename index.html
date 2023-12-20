@@ -280,6 +280,16 @@
             <div id="update-list">
                 <div class="update">
                     <div class="vr-dt">
+                        <p class="version">V0.6</p>
+                        <p class="date">2023-12-19</p>
+                    </div>
+                    <div class="up-desc">
+                        <p>+ code optimalization</p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="update">
+                    <div class="vr-dt">
                         <p class="version">V0.5</p>
                         <p class="date">2023-12-11</p>
                     </div>
@@ -355,7 +365,7 @@
                 </div>
                 <div class="image-desc">
                     <p class="img-title">VSKY.COM</p>
-                    <p>VSKY.COM is a free website created for easy and friendly language learning.</p>
+                    <p>VSKY.COM is a free website created for easy and friendly language learning. </p>
                 </div>
             </div>
             <div class="image-box">
@@ -377,38 +387,328 @@
                 </div>
             </div>
         </section>
+        <section>
+            <h2>Zwroty</h2>
+            <div id="phrases">
+                <div class="phrase-container">
+                    <div class="phrase">word</div>
+                    <div class="pause">—</div>
+                    <div class="translate">translation</div>
+                </div>
+            </div>
+        </section>
     </div>
     <div id="mobile-widgets"><a id="gomenu" href="#menu">Menu</a></div>
     <div id="page-footer">
         <footer>
-            <p>2023 V0.5</p>
+            <p>2023 V0.6</p>
         </footer>
     </div>
 </body>
 <script>
-    function move(x)
-    {
-        switch(x)
-        {
-            case 'ibb':
-                window.location.href = "https://mcraftyt25.github.io/ibb/";
-                break;
-            case 'ling':
-                window.location.href = "https://mcraftyt25.github.io/ling/";
-                break;
-            case 'archive':
-                window.location.href = "https://mcraftyt25.github.io/angwebsite.github.io/";
-                break;
-            case '48':
-                window.location.href = "https://mcraftyt25.github.io/48/";
-                break;
-            case '':
-                window.location.href = "https://mcraftyt25.github.io/angwebsite.github.io/";
-                break;
-                
-        }
-    }
+// Definiujemy nasze tłumaczenia i przykłady użycia bezpośrednio w skrypcie
+const translations = {
+  "Mi scusi / Permesso": {
+    "translation": "Przepraszam",
+    "example": ""
+  },
+  "Mi dispiace": {
+    "translation": "Przykro mi",
+    "example": ""
+  },
+  "Non capisco": {
+    "translation": "Nie rozumiem",
+    "example": ""
+  },
+  "Parla Inglese": {
+    "translation": "Czy mówisz po angielsku?",
+    "example": ""
+  },
+  "Mi chiamo": {
+    "translation": "Nazywam się",
+    "example": ""
+  },
+  "Piacere": {
+    "translation": "Miło mi",
+    "example": ""
+  },
+  "A presto": {
+    "translation": "Do zobaczenia wkrótce",
+    "example": ""
+  },
+  "A dopo": {
+    "translation": "Do zobaczenia później",
+    "example": ""
+  },
+  "Sto bene grazie": {
+    "translation": "Dobrze, dziękuję",
+    "example": ""
+  },
+  "": {
+    "translation": "",
+    "example": ""
+  },
+  "": {
+    "translation": "",
+    "example": ""
+  },
+  "": {
+    "translation": "",
+    "example": ""
+  },
+
+
+
+  "Ciao": {
+    "translation": "Cześć / Do widzenia",
+    "example": ""
+  },
+"Salve": {
+    "translation": "Witaj",
+    "example": ""
+  },
+"Buon giorno": {
+    "translation": "Dzień dobry",
+    "example": ""
+  },
+"Buon pomeriggio": {
+    "translation": "Dobry popołudnie",
+    "example": ""
+  },
+"Una buona giornata": {
+    "translation": "Miłego dnia",
+    "example": ""
+  },
+"Buona serata": {
+    "translation": "Miłego wieczoru",
+    "example": ""
+  },
+"Buona notte": {
+    "translation": "Dobranoc",
+    "example": ""
+  },
+"Buonasera": {
+    "translation": "Dobry wieczór",
+    "example": ""
+  },
+"Arrivederci": {
+    "translation": "Do widzenia",
+    "example": ""
+  },
+"Si": {
+    "translation": "Tak",
+    "example": ""
+  },
+"No": {
+    "translation": "Nie",
+    "example": ""
+  },
+"Grazie": {
+    "translation": "Dziękuję",
+    "example": ""
+  },
+"Per favore": {
+    "translation": "Proszę",
+    "example": ""
+  },
+"Prego / Grazie mille": {
+    "translation": "Nie ma za co",
+    "example": ""
+  },
+"Mi scusi / Permesso": {
+    "translation": "Przepraszam",
+    "example": ""
+  },
+"Mi dispiace": {
+    "translation": "Przykro mi",
+    "example": ""
+  },
+"Non capisco": {
+    "translation": "Nie rozumiem",
+    "example": ""
+  },
+"Parla Inglese": {
+    "translation": "Czy mówisz po angielsku?",
+    "example": ""
+  },
+"Mi chiamo": {
+    "translation": "Nazywam się",
+    "example": ""
+  },
+"Sono americano": {
+    "translation": "Jestem Amerykaninem",
+    "example": ""
+  },
+"Piacere": {
+    "translation": "Miło mi",
+    "example": ""
+  },
+"A presto": {
+    "translation": "Do zobaczenia wkrótce",
+    "example": ""
+  },
+"A dopo": {
+    "translation": "Do zobaczenia później",
+    "example": ""
+  },
+"Come sta / come va": {
+    "translation": "Jak się pan/pani ma?",
+    "example": ""
+  },
+"Sto bene grazie": {
+    "translation": "Dobrze, dziękuję",
+    "example": ""
+  }
+
+  // Dodaj więcej tłumaczeń i przykładów użycia według potrzeb
+};
+/*
+// Znajdujemy nasz kontener na tłumaczenia
+const translationsContainer = document.getElementById('translations-container');
+
+// Iterujemy przez wszystkie tłumaczenia
+let i = 1;
+for (const word in translations) {
+  const translation = translations[word].translation;
+  const example = translations[word].example;
+
+  // Tworzymy nowy paragraf dla każdego tłumaczenia
+  const paragraph = document.createElement('p');
+  paragraph.textContent = `${i}. ${word} (${translation}): ${example}`;
+
+  // Dodajemy paragraf do naszego kontenera
+  translationsContainer.appendChild(paragraph);
+
+  i++;
+}*/
 </script>
+<script>
+    /*
+// Funkcja do losowania elementów z obiektu
+function getRandom(obj, n) {
+  const keys = Object.keys(obj);
+  const result = {};
+
+  for (let i = 0; i < n; i++) {
+    const randomIndex = Math.floor(Math.random() * keys.length);
+    const key = keys[randomIndex];
+    result[key] = obj[key];
+    keys.splice(randomIndex, 1);
+  }
+
+  return result;
+}
+
+// Losujemy trzy tłumaczenia
+const randomTranslations = getRandom(translations, 3);
+
+// Znajdujemy nasz kontener na tłumaczenia
+const randomTranslationsContainer = document.getElementById('random-translations-container');
+
+// Iterujemy przez wylosowane tłumaczenia
+let z = 1;
+for (const word in randomTranslations) {
+  const translation = randomTranslations[word].translation;
+  const example = randomTranslations[word].example;
+
+  // Tworzymy nowy paragraf dla każdego tłumaczenia
+  const paragraph = document.createElement('p');
+  paragraph.textContent = `${z}. ${word} (${translation}): ${example}`;
+
+  // Dodajemy paragraf do naszego kontenera
+  randomTranslationsContainer.appendChild(paragraph);
+
+  z++;
+}*/
+</script>
+<script>
+    /*// Funkcja do losowania elementów z obiektu
+function getRandom(obj, n) {
+  const keys = Object.keys(obj);
+  const result = {};
+
+  for (let i = 0; i < n; i++) {
+    const randomIndex = Math.floor(Math.random() * keys.length);
+    const key = keys[randomIndex];
+    result[key] = obj[key];
+    keys.splice(randomIndex, 1);
+  }
+
+  return result;
+}
+
+// Losujemy trzy tłumaczenia
+const randomTranslations = getRandom(translations, 3);
+
+// Znajdujemy nasz kontener na tłumaczenia
+const randomTranslationsContainer = document.getElementById('phrases');
+
+// Iterujemy przez wylosowane tłumaczenia
+for (const word in randomTranslations) {
+  const translation = randomTranslations[word].translation;
+
+  // Tworzymy nowy kontener dla każdego tłumaczenia
+  const phraseContainer = document.createElement('div');
+  phraseContainer.className = 'phrase-container';
+
+  // Tworzymy div dla słowa
+  const phraseDiv = document.createElement('div');
+  phraseDiv.className = 'phrase';
+  phraseDiv.textContent = word;
+
+  // Tworzymy div dla pauzy
+  const pauseDiv = document.createElement('div');
+  pauseDiv.className = 'pause';
+  pauseDiv.textContent = '—';
+
+  // Tworzymy div dla tłumaczenia
+  const translateDiv = document.createElement('div');
+  translateDiv.className = 'translate';
+  translateDiv.textContent = translation;
+
+  // Dodajemy wszystko do naszego kontenera
+  phraseContainer.appendChild(phraseDiv);
+  phraseContainer.appendChild(pauseDiv);
+  phraseContainer.appendChild(translateDiv);
+  randomTranslationsContainer.appendChild(phraseContainer);
+}*/
+</script>
+<script>
+    // Znajdujemy nasz kontener na tłumaczenia
+const translationsContainer = document.getElementById('phrases');
+
+// Iterujemy przez wszystkie tłumaczenia
+for (const word in translations) {
+  const translation = translations[word].translation;
+  const example = translations[word].example;
+
+  // Tworzymy nowy kontener dla każdego tłumaczenia
+  const phraseContainer = document.createElement('div');
+  phraseContainer.className = 'phrase-container';
+
+  // Tworzymy div dla słowa
+  const phraseDiv = document.createElement('div');
+  phraseDiv.className = 'phrase';
+  phraseDiv.textContent = word;
+
+  // Tworzymy div dla pauzy
+  const pauseDiv = document.createElement('div');
+  pauseDiv.className = 'pause';
+  pauseDiv.textContent = '—';
+
+  // Tworzymy div dla tłumaczenia
+  const translateDiv = document.createElement('div');
+  translateDiv.className = 'translate';
+  translateDiv.textContent = translation;
+
+  // Dodajemy wszystko do naszego kontenera
+  phraseContainer.appendChild(phraseDiv);
+  phraseContainer.appendChild(pauseDiv);
+  phraseContainer.appendChild(translateDiv);
+  translationsContainer.appendChild(phraseContainer);
+}
+</script>
+<script src="scripts/move.js"></script>
 <script src="scripts/searchengine.js"></script>
 <script src="scripts/daycounter.js"></script>
 <script src="scripts/learning.js"></script>
