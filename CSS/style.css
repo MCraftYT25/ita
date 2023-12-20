@@ -233,6 +233,20 @@ h1::selection, h2::selection {
     color: gray;
 }
 /*————————————————————————————————————————||————————————————————*/
+#loadmore {
+    background-color: var(--main-color);
+    color: var(--second-color);
+    font-family: 'apple-semi-bold';
+    padding: 0.5em;
+    border-radius: 0.2em;
+    transition: background-color 0.2s, color 0.2s;
+}
+#loadmore:hover {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    transition: background-color 0.2s, color 0.2s;
+}
+/*————————————————————————————————————————||————————————————————*/
 @media screen and (min-width: 200px) {
     #mobile-widgets {
         visibility: visible;
